@@ -1,0 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoraes- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/18 12:46:29 by smoraes-          #+#    #+#             */
+/*   Updated: 2024/01/23 01:50:41 by smoraes-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	**create_ar(const char *s, char c)
+{
+	int		count;
+	char	**array;
+
+	count = 0;
+	while (*s)
+	{
+		if (*s++ == c)
+		{
+			count++;
+		}
+	}
+	array = (char **) malloc (count * sizeof(char *));
+	if (array == NULL)
+		return (NULL);
+	return (array);
+}
+
+void	*create_substr(int count)
+{
+	char	*substr;
+
+	substr = (char *) malloc(count * sizeof(char *));
+	if (substr == NULL)
+		return (NULL);
+	return (substr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		inisubstr;
+	int		endsubstr;
+	int		size;
+	int		substr;
+	char	**array;
+	
+	substr = 0;
+	inisubstr = 0;
+	endsubstr = 1;
+	
+
+	array = create_ar(s, c);
+
+	while (s[i] != '0')
+	{
+		endsubstr++;
+		if (src[i] == c)
+		{
+			array[substr] = create_substr(endsubstr);
+		}
+		while(s[endsubtr++] == c) 
+		{
+			endsubstr;
+		}
+		size = endsubstr - inisubstr;
+		inisubstr = endsubstr;
+		array[substr] = create_substr((size + 1));
+		ft_strlcpy(array[substr], (&s[inisubstr]), endsubstr);
+		endsubstr = 1;
+		substr++;
+	}
+	return (array);
+}
